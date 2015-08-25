@@ -68,6 +68,16 @@
           commit-tstamp-str (.format (SimpleDateFormat. format-str)
                                      commit-tstamp)
 
+          remote-scm-server 
+          (try 
+              (join "/"
+                (butlast 
+                  (split 
+                    (run-git-wait dir ["ls-remote" "--get-url"])
+                  #"/")))
+              (catch java.lang.RuntimeException e ""))
+
+            
           [short-hash long-hash]  (split
                                    (run-git-wait dir
                                                  ["log" "-n" "1" "--format=%h %H"])
@@ -76,6 +86,7 @@
           versioning-properties {:build-tag "N/A"
                                  :build-version "N/A"
                                  :build-tag-delta "0"
+                                 :remote remote-scm-server
                                  :build-tstamp commit-tstamp-str
                                  :build-commit long-hash
                                  :build-commit-abbrev short-hash }

@@ -15,6 +15,8 @@ cd $TARGET_DIR
 git init
 > README.txt
 
+git remote add origin git@git.liveramp.oov:MasterRepo/oov.git
+
 git add README.txt
 git ci -m "Initial commit. Before any tag"
 
