@@ -7,6 +7,12 @@ TARGET_DIR="$1"
 mkdir -p $TARGET_DIR
 cd $TARGET_DIR
 
+# make sure the aliases used later actually work
+git config alias.co checkout
+git config alias.br branch
+git config alias.ci commit
+git config alias.st status
+
 git init
 > README.txt
 
