@@ -11,7 +11,7 @@
 
   <groupId>com.code54.mojo</groupId>
   <artifactId>buildversion-plugin</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.5-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>buildversion-plugin</name>
@@ -43,6 +43,23 @@
     <maven.version>3.0.4</maven.version>
   </properties>
 
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>sonatype-releases</id>
+      <url>http://oss.sonatype.org/content/repositories/releases</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>clojars.org</id>
+      <url>http://clojars.org/repo</url>
+    </pluginRepository>
+
+    <!-- If you want to try SNAPSHOT versions, you need Sonatype's snapshots repo: -->
+    <pluginRepository>
+      <id>sonatype-snapshots</id>
+      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <profiles>
     <profile>
